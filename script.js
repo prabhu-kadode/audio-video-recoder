@@ -1,10 +1,19 @@
+const recordStartBtn = document.getElementById('startRecordId');
+const recordStopBtn = document.getElementById('stopRecordId');
+const recordDownloadBtn = document.getElementById('downloadRecordId');
+const recorPlayBtn = document.getElementById('playRecordId');
 let mediaRecoder;
+recordIngStarted = false;
 let recodedChunks = [];
 let options = {
 	audio: true,
 };
 
 function startRecording() {
+	recordStartBtn.setAttribute('disabled', true);
+	recordDownloadBtn.disabled = true;
+	recorPlayBtn.disabled = true;
+	recordStopBtn.disabled = false;
 	navigator.mediaDevices.getUserMedia(options).then((stream) => {
 		storeTheStream(stream);
 	});
@@ -17,6 +26,10 @@ function storeTheStream(stream) {
 	});
 }
 function stopRecording() {
+	recordStartBtn.disabled = false;
+	recordStopBtn.disabled = true;
+	recordDownloadBtn.disabled = false;
+	recorPlayBtn.disabled = false;
 	mediaRecoder.stop();
 }
 function saveRecording() {

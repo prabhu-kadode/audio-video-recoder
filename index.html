@@ -5,7 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Audio video recoder</title>
 		<link href="index.css" rel="stylesheet" />
-		<script src="script.js"></script>
+		<script src="script.js" defer></script>
 	</head>
 	<body>
 		<div class="container">
@@ -13,10 +13,28 @@
 				<h1>Recorde anything</h1>
 			</div>
 			<div class="body">
-				<button onclick="startRecording()">Recording start</button>
-				<button onclick="stopRecording()">Recording Stop</button>
-				<button onclick="saveRecording()">Download</button>
-				<button onclick="playRecording()">Play</button>
+				<button onclick="startRecording()" id="startRecordId">
+					Recording start
+				</button>
+				<button
+					type="button"
+					onclick="stopRecording()"
+					id="stopRecordId"
+					disabled="true"
+				>
+					Recording Stop
+				</button>
+				<button
+					type="button"
+					onclick="saveRecording()"
+					id="downloadRecordId"
+					disabled
+				>
+					Download
+				</button>
+				<button onclick="playRecording()" id="playRecordId" disabled>
+					Play
+				</button>
 			</div>
 			<div class="footer">
 				<h1>Designed and Developed by Prabhu kadode</h1>
